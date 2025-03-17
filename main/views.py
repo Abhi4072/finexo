@@ -15,7 +15,7 @@ def why(request):
 def team(request):
     return render(request, 'team.html')
 
-def signup(request):
+def api_signup(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         email = request.POST.get('email')
@@ -28,6 +28,8 @@ def signup(request):
         return JsonResponse({'message': 'Signup successful!'}, status=201)
     return JsonResponse({'error': 'Invalid request method.'}, status=400)
 
+def signup(request):
+    return render(request, 'signup.html')
 
 def beneficiary(request):
     return render(request, 'beneficiary.html')

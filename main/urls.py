@@ -8,6 +8,6 @@ urlpatterns = [
     path('why/', views.why, name='why'),
     path('team/', views.team, name='team'),
     # path('signup/', views.signup, name='signup'),
-    path('signup/', views.signup, name='api_signup'),  # New API endpoint for signup
+    path('signup/', views.signup, name='signup'),  # New API endpoint for signup
     path('beneficiary/', views.beneficiary, name='beneficiary'),
 ]
