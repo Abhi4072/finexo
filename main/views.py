@@ -33,3 +33,6 @@ def signup(request):
 
 def beneficiary(request):
     return render(request, 'beneficiary.html')
+
+def login(request):
+    return render(request, 'login.html')
