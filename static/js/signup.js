@@ -1,100 +1,62 @@
-const slidePage = document.querySelector(".slide-page");
-const nextBtnFirst = document.querySelector(".firstNext");
-const prevBtnSec = document.querySelector(".prev-1");
-const nextBtnSec = document.querySelector(".next-1");
-const prevBtnThird = document.querySelector(".prev-2");
-const nextBtnThird = document.querySelector(".next-2");
-const prevBtnFourth = document.querySelector(".prev-3");
-const submitBtn = document.querySelector(".submit");
-const progressText = document.querySelectorAll(".step p");
-const progressCheck = document.querySelectorAll(".step .check");
-const bullet = document.querySelectorAll(".step .bullet");
-let current = 1;
 
-// Password strength validation
-const passwordInput = document.querySelector("input[type='password']");
-const confirmPasswordInput = document.querySelectorAll("input[type='password']")[1];
-const strengthIndicator = document.createElement("div");
-passwordInput.parentNode.insertBefore(strengthIndicator, passwordInput.nextSibling);
+    document.getElementById("form_btn").addEventListener("click", function(e) {
+        e.preventDefault(); // Prevent the default form submission
 
-passwordInput.addEventListener("input", function() {
-    const password = passwordInput.value;
-    let strength = "Weak";
-    if (password.length >= 8 && /[A-Z]/.test(password) && /[a-z]/.test(password) && /\d/.test(password) && /[!@#$%^&*]/.test(password)) {
-        strength = "Strong";
-    } else if (password.length >= 6) {
-        strength = "Medium";
-    }
-    strengthIndicator.textContent = `Password Strength: ${strength}`;
-});
+        console.log("Form submitted"); // Debugging line
 
-// Password matching
-confirmPasswordInput.addEventListener("input", function() {
-    if (confirmPasswordInput.value !== passwordInput.value) {
-        confirmPasswordInput.setCustomValidity("Passwords do not match");
-    } else {
-        confirmPasswordInput.setCustomValidity("");
-    }
-});
+        // // Capture form data
+        // const fullName = form.querySelector('input[placeholder="Enter your name"]').value;
+        // const dob = form.querySelector('input[type="date"]').value;
+        // const nationality = form.querySelector('input[placeholder="Enter nationality"]').value;
+        // const phoneNumber = form.querySelector('input[placeholder="Enter your number"]').value;
+        // const addressLine1 = form.querySelector('input[placeholder="Line 1"]').value;
+        // const addressLine2 = form.querySelector('input[placeholder="Line 2"]').value;
+        // const city = form.querySelector('input[placeholder="City Name"]').value;
+        // const state = form.querySelector('input[placeholder="State"]').value;
+        // const country = form.querySelector('input[placeholder="Country"]').value;
+        // const pinCode = form.querySelector('input[placeholder="Pin"]').value;
+        // const email = form.querySelector('input[name="email"]').value;
+        // const password = form.querySelector('input[name="password"]').value;
+        // const confirmPassword = form.querySelector('input[placeholder="Confirm your password"]').value;
+        // const gender = form.querySelector('input[name="gender"]:checked') ? form.querySelector('input[name="gender"]:checked').nextElementSibling.innerText : '';
 
-nextBtnFirst.addEventListener("click", function(event){
-  event.preventDefault();
-  slidePage.style.marginLeft = "-25%";
-  bullet[current - 1].classList.add("active");
-  progressCheck[current - 1].classList.add("active");
-  progressText[current - 1].classList.add("active");
-  current += 1;
-});
-nextBtnSec.addEventListener("click", function(event){
-  event.preventDefault();
-  slidePage.style.marginLeft = "-50%";
-  bullet[current - 1].classList.add("active");
-  progressCheck[current - 1].classList.add("active");
-  progressText[current - 1].classList.add("active");
-  current += 1;
-});
-nextBtnThird.addEventListener("click", function(event){
-  event.preventDefault();
-  slidePage.style.marginLeft = "-75%";
-  bullet[current - 1].classList.add("active");
-  progressCheck[current - 1].classList.add("active");
-  progressText[current - 1].classList.add("active");
-  current += 1;
-});
-submitBtn.addEventListener("click", function(){
-  bullet[current - 1].classList.add("active");
-  progressCheck[current - 1].classList.add("active");
-  progressText[current - 1].classList.add("active");
-  current += 1;
-  setTimeout(function(){
-    alert("Your Form Successfully Signed up");
-    location.reload();
-  },800);
-});
+        // // Create JSON object
+        // const userData = {
+        //     fullName,
+        //     dob,
+        //     nationality,
+        //     phoneNumber,
+        //     addressLine1,
+        //     addressLine2,
+        //     city,
+        //     state,
+        //     country,
+        //     pinCode,
+        //     email,
+        //     password,
+        //     confirmPassword,
+        //     gender
+        // };
 
-prevBtnSec.addEventListener("click", function(event){
-  event.preventDefault();
-  slidePage.style.marginLeft = "0%";
-  bullet[current - 1].classList.remove("active");
-  progressCheck[current - 1].classList.remove("active");
-  progressText[current - 1].classList.remove("active");
-  current -= 1;
-});
+        // // Print data for debugging
+        // console.log('User Data:', userData);
 
-prevBtnThird.addEventListener("click", function(event){
-  event.preventDefault();
-  slidePage.style.marginLeft = "-25%";
-  bullet[current - 1].classList.remove("active");
-  progressCheck[current - 1].classList.remove("active");
-  progressText[current - 1].classList.remove("active");
-  current -= 1;
-});
+        // // Call the API
+        // fetch('/api/register', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify(userData)
+        // })
+        // .then(response => response.json())
+        // .then(data => {
+        //     console.log('Success:', data);
+        //     // Handle success (e.g., redirect or show a success message)
+        // })
+        // .catch((error) => {
+        //     console.error('Error:', error);
+        //     // Handle error (e.g., show an error message)
+        // });
+    });
 
-prevBtnFourth.addEventListener("click", function(event){
-  event.preventDefault();
-  slidePage.style.marginLeft = "-50%";
-  bullet[current - 1].classList.remove("active");
-  progressCheck[current - 1].classList.remove("active");
-  progressText[current - 1].classList.remove("active");
-  current -= 1;
-});
