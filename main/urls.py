@@ -11,4 +11,5 @@ urlpatterns = [
     path('signup/', views.signup, name='signup'),  # New API endpoint for signup
     path('beneficiary/', views.beneficiary, name='beneficiary'),
     path('login/', views.login, name='login'),
+    path('createaccount/', views.UserAccountCreate.as_view(), name='user-account-create'),
 ]

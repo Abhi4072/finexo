@@ -1,4 +1,11 @@
 from django.shortcuts import render
+from rest_framework import generics
+from .models import UserSignup
+from .serializers import UserSignupSerializer
+
+class UserAccountCreate(generics.ListCreateAPIView):
+    queryset = UserSignup.objects.all()
+    serializer_class = UserSignupSerializer
 
 def index(request):
     return render(request, 'index.html')
