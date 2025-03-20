@@ -1,100 +1,39 @@
-const slidePage = document.querySelector(".slide-page");
-const nextBtnFirst = document.querySelector(".firstNext");
-const prevBtnSec = document.querySelector(".prev-1");
-const nextBtnSec = document.querySelector(".next-1");
-const prevBtnThird = document.querySelector(".prev-2");
-const nextBtnThird = document.querySelector(".next-2");
-const prevBtnFourth = document.querySelector(".prev-3");
-const submitBtn = document.querySelector(".submit");
-const progressText = document.querySelectorAll(".step p");
-const progressCheck = document.querySelectorAll(".step .check");
-const bullet = document.querySelectorAll(".step .bullet");
-let current = 1;
+var name = document.getElementById("name");
+var date_of_birth = document.getElementById("date_of_birth");
+var nationality = document.getElementById("nationality");
+var phone = document.getElementById("phone");
+var add1 = document.getElementById("add1");
+var add2 = document.getElementById("add2");
+var city = document.getElementById("city");
+var state = document.getElementById("state");
+var country = document.getElementById("country");
+var pin = document.getElementById("pin");
+var email = document.getElementById("mail");
+var password = document.getElementById("pass");
+var username = document.getElementById("usrname");
 
-// Password strength validation
-const passwordInput = document.querySelector("input[type='password']");
-const confirmPasswordInput = document.querySelectorAll("input[type='password']")[1];
-const strengthIndicator = document.createElement("div");
-passwordInput.parentNode.insertBefore(strengthIndicator, passwordInput.nextSibling);
+document.getElementById("form_submit").addEventListener("submit", function (event) {
+  event.preventDefault(); // Prevent the default form submission
 
-passwordInput.addEventListener("input", function() {
-    const password = passwordInput.value;
-    let strength = "Weak";
-    if (password.length >= 8 && /[A-Z]/.test(password) && /[a-z]/.test(password) && /\d/.test(password) && /[!@#$%^&*]/.test(password)) {
-        strength = "Strong";
-    } else if (password.length >= 6) {
-        strength = "Medium";
-    }
-    strengthIndicator.textContent = `Password Strength: ${strength}`;
-});
+  // Gather data into a JSON object
+  var formData = {
+    name: name.value,
+    date_of_birth: date_of_birth.value,
+    nationality: nationality.value,
+    phone: phone.value,
+    line1: add1.value,
+    line2: add2.value,
+    city: city.value,
+    state: state.value,
+    country: country.value,
+    pin: pin.value,
+    email: email.value,
+    password: password.value,
+    username: username.value
+  };
 
-// Password matching
-confirmPasswordInput.addEventListener("input", function() {
-    if (confirmPasswordInput.value !== passwordInput.value) {
-        confirmPasswordInput.setCustomValidity("Passwords do not match");
-    } else {
-        confirmPasswordInput.setCustomValidity("");
-    }
-});
+  // Log the JSON object to the console
+  console.log(JSON.stringify(formData));
 
-nextBtnFirst.addEventListener("click", function(event){
-  event.preventDefault();
-  slidePage.style.marginLeft = "-25%";
-  bullet[current - 1].classList.add("active");
-  progressCheck[current - 1].classList.add("active");
-  progressText[current - 1].classList.add("active");
-  current += 1;
-});
-nextBtnSec.addEventListener("click", function(event){
-  event.preventDefault();
-  slidePage.style.marginLeft = "-50%";
-  bullet[current - 1].classList.add("active");
-  progressCheck[current - 1].classList.add("active");
-  progressText[current - 1].classList.add("active");
-  current += 1;
-});
-nextBtnThird.addEventListener("click", function(event){
-  event.preventDefault();
-  slidePage.style.marginLeft = "-75%";
-  bullet[current - 1].classList.add("active");
-  progressCheck[current - 1].classList.add("active");
-  progressText[current - 1].classList.add("active");
-  current += 1;
-});
-submitBtn.addEventListener("click", function(){
-  bullet[current - 1].classList.add("active");
-  progressCheck[current - 1].classList.add("active");
-  progressText[current - 1].classList.add("active");
-  current += 1;
-  setTimeout(function(){
-    alert("Your Form Successfully Signed up");
-    location.reload();
-  },800);
-});
-
-prevBtnSec.addEventListener("click", function(event){
-  event.preventDefault();
-  slidePage.style.marginLeft = "0%";
-  bullet[current - 1].classList.remove("active");
-  progressCheck[current - 1].classList.remove("active");
-  progressText[current - 1].classList.remove("active");
-  current -= 1;
-});
-
-prevBtnThird.addEventListener("click", function(event){
-  event.preventDefault();
-  slidePage.style.marginLeft = "-25%";
-  bullet[current - 1].classList.remove("active");
-  progressCheck[current - 1].classList.remove("active");
-  progressText[current - 1].classList.remove("active");
-  current -= 1;
-});
-
-prevBtnFourth.addEventListener("click", function(event){
-  event.preventDefault();
-  slidePage.style.marginLeft = "-50%";
-  bullet[current - 1].classList.remove("active");
-  progressCheck[current - 1].classList.remove("active");
-  progressText[current - 1].classList.remove("active");
-  current -= 1;
+  
 });

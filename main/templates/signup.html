@@ -93,77 +93,74 @@
       <div class="title">Create Account</div>
       <div class="content">
       <!-- Registration form -->
-      <form action="#">
+      <form id="form_submit">
           <div class="user-details">
           <!-- Input for Full Name -->
             <div class="input-box">
               <span class="details">Full Name</span>
-              <input type="text" placeholder="Enter your name" required>
+              <input type="text" id="name" placeholder="Enter your name" required>
             </div>
           <!-- Input for Date of Birth -->
             <div class="input-box">
               <span class="details">Date of Birth</span>
-              <input type="date" required>
+              <input type="date" id="date_of_birth" required>
             </div>
           <!-- Input for Nationality -->
             <div class="input-box">
               <span class="details">Nationality</span>
-              <input type="text" placeholder="Enter nationality" required>
+              <input type="text" id="nationality" placeholder="Enter nationality" required>
             </div>
           <!-- Input for Phone Number -->
             <div class="input-box">
               <span class="details">Phone Number</span>
-              <input type="text" placeholder="Enter your number" required>
+              <input type="text" id="phone" placeholder="Enter your number" required>
             </div>
           <!-- Input for Address Line 1 -->
             <div class="input-box">
               <span class="details">Address Line 1</span>
-              <input type="text" placeholder="Line 1" required>
+              <input type="text" id="add1" placeholder="Line 1" required>
             </div>
           <!-- Input for Address Line 2 -->
             <div class="input-box">
               <span class="details">Address Line 2</span>
-              <input type="text" placeholder="Line 2">
+              <input type="text" id="add2" placeholder="Line 2">
             </div>
           <!-- Input for City -->
             <div class="input-box">
               <span class="details">City</span>
-              <input type="text" placeholder="City Name" required>
+              <input type="text" id="city" placeholder="City Name" required>
             </div>
           <!-- Input for State -->
             <div class="input-box">
               <span class="details">State</span>
-              <input type="text" placeholder="State" required>
+              <input type="text" id="state" placeholder="State" required>
             </div>
           <!-- Input for Country -->
             <div class="input-box">
               <span class="details">Country</span>
-              <input type="text" placeholder="Country" required>
+              <input type="text" id="country" placeholder="Country" required>
             </div>
           <!-- Input for Pin Code -->
             <div class="input-box">
               <span class="details">Pin Code</span>
-              <input type="number" placeholder="Pin" required>
+              <input type="number" id="pin" placeholder="Pin" required>
             </div>
           <!-- Input for Email -->
             <div class="input-box">
               <span class="details">Email Address</span>
-              <input type="email" name="email" placeholder="Email" required>
+              <input type="email" id="mail" name="email" placeholder="Email" required>
             </div>
           <!-- Input for Password -->
             <div class="input-box">
               <span class="details">Set Password</span>
-              <input type="password" name="password" placeholder="Confirm your password" required>
+              <input type="password" id="pass" name="password" placeholder="Confirm your password" required>
             </div>
-          <!-- Input for Confirm Password -->
-            <div class="input-box">
-              <span class="details">Confirm Password</span>
-              <input type="password" placeholder="Confirm your password" required>
-            </div>
+            
             <div class="input-box">
               <span class="details">Username</span>
-              <input type="text" name="username" placeholder="Enter your username" required>
+              <input type="text" id="usrname" name="username" placeholder="Enter your username" required>
             </div>
+          </div>
         <div class="gender-details">
           <!-- Radio buttons for gender selection -->
           <input type="radio" name="gender" id="dot-1">
@@ -190,11 +187,12 @@
         </div>
         <!-- Submit button -->
           <div class="button">
-            <input type="submit" value="Register">
+            <button type="submit">Register</button>
           </div>
         </form>
       </div>
     </div>
   </div>
+  <script src="../../static/js/signup.js"></script>
 </body>
 </html>
