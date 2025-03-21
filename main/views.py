@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework import generics
 from .models import UserSignup
 from .serializers import UserSignupSerializer
+from django.http import JsonResponse
 
 class UserAccountCreate(generics.ListCreateAPIView):
     queryset = UserSignup.objects.all()
@@ -24,37 +25,26 @@ def team(request):
 
 def api_signup(request):
     if request.method == 'POST':
-        full_name = request.POST.get('fullName')
-        dob = request.POST.get('dob')
+        full_name = request.POST.get('full_name')
+        date_of_birth = request.POST.get('date_of_birth')
         nationality = request.POST.get('nationality')
-        phone_number = request.POST.get('phoneNumber')
-        address_line1 = request.POST.get('addressLine1')
-        address_line2 = request.POST.get('addressLine2')
+        phone_number = request.POST.get('phone_number')
+        address_line_1 = request.POST.get('address_line_1')
+        address_line_2 = request.POST.get('address_line_2')
         city = request.POST.get('city')
         state = request.POST.get('state')
         country = request.POST.get('country')
-        pin_code = request.POST.get('pinCode')
-        email = request.POST.get('email')
-        password = request.POST.get('password')
-        confirm_password = request.POST.get('confirmPassword')
-        gender = request.POST.get('gender')
-
+        pin_code = request.POST.get('pin_code')
+        gender = request.POST.get('gender')  # Capture gender data
         
-        # Here you would typically validate the data and save it to the database
-        user_signup = UserSignup(
-            username=full_name, 
-            email=email, 
-            password=password,
-            # Add additional fields as necessary
-        )
+        user_signup = UserSignup(full_name=full_name, date_of_birth=date_of_birth, nationality=nationality, 
+                                 phone_number=phone_number, address_line_1=address_line_1, 
+                                 address_line_2=address_line_2, city=city, state=state, 
+                                 country=country, pin_code=pin_code, gender=gender)
 
-        user_signup.save()
-        
-        # Here you would typically validate the data and save it to the database
         user_signup.save()
         
         return JsonResponse({'message': 'Signup successful!'}, status=201)
-
     return JsonResponse({'error': 'Invalid request method.'}, status=400)
 
 def signup(request):
